@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\abdurosik\\Desktop\\CafeProject\\CafeApi\\wwwroot\\images\\Esp.jpg",
+      "PackagePath": "staticwebassets\\images\\Esp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\abdurosik\\Desktop\\CafeProject\\CafeApi\\wwwroot\\images\\images.jpg",
+      "PackagePath": "staticwebassets\\images\\images.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CafeApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CafeApi.props",
+      "PackagePath": "build\\CafeApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CafeApi.props",
+      "PackagePath": "buildMultiTargeting\\CafeApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CafeApi.props",
+      "PackagePath": "buildTransitive\\CafeApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

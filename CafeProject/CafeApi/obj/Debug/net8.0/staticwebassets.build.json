@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "X85G0DneA/J9I3QnAt+SOzNY/R2qiRg3t/UZa8sWADc=",
+  "Source": "CafeApi",
+  "BasePath": "_content/CafeApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CafeApi\\wwwroot",
+      "Source": "CafeApi",
+      "ContentRoot": "C:\\Users\\abdurosik\\Desktop\\CafeProject\\CafeApi\\wwwroot\\",
+      "BasePath": "_content/CafeApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\abdurosik\\Desktop\\CafeProject\\CafeApi\\wwwroot\\images\\Esp.jpg",
+      "SourceId": "CafeApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\abdurosik\\Desktop\\CafeProject\\CafeApi\\wwwroot\\",
+      "BasePath": "_content/CafeApi",
+      "RelativePath": "images/Esp.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Esp.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\abdurosik\\Desktop\\CafeProject\\CafeApi\\wwwroot\\images\\images.jpg",
+      "SourceId": "CafeApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\abdurosik\\Desktop\\CafeProject\\CafeApi\\wwwroot\\",
+      "BasePath": "_content/CafeApi",
+      "RelativePath": "images/images.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\images.jpg"
+    }
+  ]
+}
