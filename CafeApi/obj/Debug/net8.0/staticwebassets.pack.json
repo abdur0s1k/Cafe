@@ -1,0 +1,181 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Amer.jpg",
+      "PackagePath": "staticwebassets\\images\\Amer.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Avst.jpg",
+      "PackagePath": "staticwebassets\\images\\Avst.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Banana.jpg",
+      "PackagePath": "staticwebassets\\images\\Banana.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Bekon.jpg",
+      "PackagePath": "staticwebassets\\images\\Bekon.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Blin.jpg",
+      "PackagePath": "staticwebassets\\images\\Blin.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Cacao.jpg",
+      "PackagePath": "staticwebassets\\images\\Cacao.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\DuEsp.jpg",
+      "PackagePath": "staticwebassets\\images\\DuEsp.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\DuKap.jpg",
+      "PackagePath": "staticwebassets\\images\\DuKap.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\DuLatte.jpg",
+      "PackagePath": "staticwebassets\\images\\DuLatte.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Dub.jpg",
+      "PackagePath": "staticwebassets\\images\\Dub.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Esp.jpg",
+      "PackagePath": "staticwebassets\\images\\Esp.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Flet.jpg",
+      "PackagePath": "staticwebassets\\images\\Flet.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Glint.jpg",
+      "PackagePath": "staticwebassets\\images\\Glint.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Inde.jpg",
+      "PackagePath": "staticwebassets\\images\\Inde.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Kap.jpg",
+      "PackagePath": "staticwebassets\\images\\Kap.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Kapresa.jpg",
+      "PackagePath": "staticwebassets\\images\\Kapresa.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Kartoh.jpg",
+      "PackagePath": "staticwebassets\\images\\Kartoh.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Klass.jpg",
+      "PackagePath": "staticwebassets\\images\\Klass.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Kuris.jpg",
+      "PackagePath": "staticwebassets\\images\\Kuris.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Latte.jpg",
+      "PackagePath": "staticwebassets\\images\\Latte.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Limo.jpg",
+      "PackagePath": "staticwebassets\\images\\Limo.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Malina.jpg",
+      "PackagePath": "staticwebassets\\images\\Malina.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Mang.jpg",
+      "PackagePath": "staticwebassets\\images\\Mang.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Medovik.jpg",
+      "PackagePath": "staticwebassets\\images\\Medovik.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Mosa.jpg",
+      "PackagePath": "staticwebassets\\images\\Mosa.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Napalion.jpg",
+      "PackagePath": "staticwebassets\\images\\Napalion.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Nutel.jpg",
+      "PackagePath": "staticwebassets\\images\\Nutel.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Nutela.jpg",
+      "PackagePath": "staticwebassets\\images\\Nutela.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Ofsia.jpg",
+      "PackagePath": "staticwebassets\\images\\Ofsia.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Pavlova.jpg",
+      "PackagePath": "staticwebassets\\images\\Pavlova.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Prian.jpg",
+      "PackagePath": "staticwebassets\\images\\Prian.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Punsh.jpg",
+      "PackagePath": "staticwebassets\\images\\Punsh.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Raf.jpg",
+      "PackagePath": "staticwebassets\\images\\Raf.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Rib.jpg",
+      "PackagePath": "staticwebassets\\images\\Rib.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Sirnik.jpg",
+      "PackagePath": "staticwebassets\\images\\Sirnik.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Tirami.jpg",
+      "PackagePath": "staticwebassets\\images\\Tirami.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Vanil.jpg",
+      "PackagePath": "staticwebassets\\images\\Vanil.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Wayt.jpg",
+      "PackagePath": "staticwebassets\\images\\Wayt.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\funduk.jpg",
+      "PackagePath": "staticwebassets\\images\\funduk.jpg"
+    },
+    {
+      "Id": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Рисунок1.png",
+      "PackagePath": "staticwebassets\\images\\Рисунок1.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CafeApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CafeApi.props",
+      "PackagePath": "build\\CafeApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CafeApi.props",
+      "PackagePath": "buildMultiTargeting\\CafeApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CafeApi.props",
+      "PackagePath": "buildTransitive\\CafeApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

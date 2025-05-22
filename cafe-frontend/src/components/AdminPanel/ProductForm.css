@@ -1,0 +1,70 @@
+/* ProductForm.css */
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.form-input, .form-select, .description-input {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+}
+
+.price-label {
+    margin-left: 8px;
+}
+
+.submit-button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.description-input {
+    height: 100px; 
+    resize: none;
+}
+
+.product-description {
+    font-size: 14px; 
+    color: #555;
+    margin-top: 8px; 
+    margin-bottom: 16px; 
+    line-height: 1.5; 
+    background-color: #f9f9f9; 
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd; 
+}
+
+.product-image {
+    max-width: 100%; 
+    height: auto; 
+    margin-top: 10px; 
+}

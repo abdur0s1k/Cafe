@@ -1,0 +1,21 @@
+/* Обёртка, которая центрирует содержимое */
+.order-history-wrapper {
+  display: flex;
+  flex-direction: column; /* чтоб контент был сверху вниз */
+  justify-content: center; /* по вертикали */
+  align-items: center;     /* по горизонтали */
+  height: 100vh;           /* на всю высоту окна */
+  padding: 20px;           /* немного отступов */
+  box-sizing: border-box;  /* чтобы padding не ломал размер */
+  background-color: #f9f9f9; /* фон можно поменять */
+}
+
+/* Ограничим ширину блока с заказами и сделаем более читаемым */
+.order-history {
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
