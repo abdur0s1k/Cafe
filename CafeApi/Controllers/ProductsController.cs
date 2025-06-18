@@ -73,7 +73,7 @@ namespace CafeApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromForm] Product product, IFormFile? file)
         {
-    
+
             Console.WriteLine($"Получен запрос на обновление товара с ID: {id}");
 
             if (id != product.Id)

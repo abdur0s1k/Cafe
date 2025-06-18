@@ -24,6 +24,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+
 }
 
 h1 {
@@ -39,11 +40,10 @@ input, textarea {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #0f3739;
+  box-shadow: 0 0 5px #0f3739;
   border-radius: 4px;
 }
-
-/* Стили кнопок только для страницы аккаунта */
 
 .toggle-password {
   position: absolute; /* Абсолютное позиционирование */
@@ -61,6 +61,15 @@ input, textarea {
 
 .login-form, .register-form {
   margin-bottom: 20px;
+  width: 400px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 20px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  padding: 20px;
 }
 
 .user-page {

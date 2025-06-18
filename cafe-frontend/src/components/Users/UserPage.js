@@ -301,7 +301,7 @@ const handleChangePasswordSubmit = async (e) => {
             <li>
               <button
                 onClick={() => navigate("/admin")}
-                style={{ backgroundColor: "#4caf50" }}
+                style={{ backgroundColor: "#0f3739" }}
               >
                 Перейти в админ-панель
               </button>
@@ -312,19 +312,32 @@ const handleChangePasswordSubmit = async (e) => {
 
 <section className="user-history">
   <h3>История действий</h3>
-  {role === "Admin" ? (
-    <button
-      onClick={() => navigate("/admin/orders")}
-      style={{ backgroundColor: "#4caf50" }}
-    >
-      Управление заказами
-    </button>
-  ) : (
-    <button onClick={() => navigate("/order-history")}>
-      История заказов
-    </button>
-  )}
+
+  <div>
+    {role === "Admin" ? (
+      <button onClick={() => navigate("/admin/orders")}>
+        Управление заказами
+      </button>
+    ) : (
+      <button onClick={() => navigate("/order-history")}>
+        История заказов
+      </button>
+    )}
+  </div>
+
+  <div>
+    {role === "Admin" ? (
+      <button onClick={() => navigate("/admin/bookings")}>
+        Управление бронью
+      </button>
+    ) : (
+      <button onClick={() => navigate("/bookinghistory")}>
+        История брони
+      </button>
+    )}
+  </div>
 </section>
+
 
     </div>
   );

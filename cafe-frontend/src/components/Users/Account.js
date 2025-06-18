@@ -97,9 +97,13 @@ function Account() {
     setFormType(formType === 'login' ? 'register' : 'login');
   };
 
-  if (loading) {
-    return <div>Загрузка...</div>;
-  }
+  if (loading)
+    return (
+      <div className="loading-container">
+        <div className="spinner" />
+        <div className="loading-text">Загрузка...</div>
+      </div>
+    );
 
   return (
     <div className="account-container">

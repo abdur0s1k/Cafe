@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using CafeApi.Data;
 using CafeApi.Models;
-using System.Threading.Tasks;
 using CafeApi.Dtos;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Net.Mail;
 
 namespace CafeApi.Controllers
 {
@@ -29,8 +30,6 @@ namespace CafeApi.Controllers
                 {
                     return BadRequest("Для онлайн-оплаты необходимо указать данные карты.");
                 }
-
-                // Здесь можно добавить валидацию карты (опционально)
             }
 
             var order = new Order
@@ -44,9 +43,46 @@ namespace CafeApi.Controllers
                 Status = dto.Status
             };
 
-
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
+
+            // Отправка чека на почту
+            var user = await _context.Users.FindAsync(dto.UserId);
+            if (user != null && !string.IsNullOrEmpty(user.Email))
+            {
+                var subject = "Ваш заказ в Кофейне";
+                var body = $@"
+Здравствуйте, {user.Name}!
+
+Ваш заказ успешно оформлен:
+
+📦 Состав заказа:
+{dto.OrderDescription}
+
+📍 Адрес самовывоза:
+{dto.PickupAddress}
+
+💰 Общая сумма: {dto.TotalPrice} BYN
+
+Спасибо за заказ!";
+
+                try
+                {
+                    var smtpClient = new SmtpClient("smtp.gmail.com")
+                    {
+                        Port = 587,
+                        Credentials = new NetworkCredential("alexalexey914@gmail.com", "bxwa cgei ymiu zvyu"),
+                        EnableSsl = true,
+                    };
+
+                    var mail = new MailMessage("alexalexey914@gmail.com", user.Email, subject, body);
+                    await smtpClient.SendMailAsync(mail);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ошибка отправки email: " + ex.Message);
+                }
+            }
 
             return Ok(order);
         }
@@ -65,47 +101,43 @@ namespace CafeApi.Controllers
             return Ok(orders);
         }
 
-[HttpGet]
-public async Task<IActionResult> GetAllOrders()
-{
-    // Сначала выгружаем данные из базы с Include, но без проекции
-    var ordersFromDb = await _context.Orders
-        .Include(o => o.User)
-        .OrderByDescending(o => o.OrderDate)
-        .ToListAsync();
+        [HttpGet]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            var ordersFromDb = await _context.Orders
+                .Include(o => o.User)
+                .OrderByDescending(o => o.OrderDate)
+                .ToListAsync();
 
-    // Потом проецируем в DTO уже в памяти (LINQ to Objects)
-    var orders = ordersFromDb.Select(o => new OrderWithUserDto
-    {
-        Id = o.Id,
-        OrderDate = o.OrderDate,
-        PickupAddress = o.PickupAddress,
-        PaymentMethod = o.PaymentMethod,
-        OrderDescription = o.OrderDescription,
-        TotalPrice = o.TotalPrice,
-        Status = o.Status,
-        UserName = o.User?.Name ?? string.Empty,
-        UserEmail = o.User?.Email ?? string.Empty
-    }).ToList();
+            var orders = ordersFromDb.Select(o => new OrderWithUserDto
+            {
+                Id = o.Id,
+                OrderDate = o.OrderDate,
+                PickupAddress = o.PickupAddress,
+                PaymentMethod = o.PaymentMethod,
+                OrderDescription = o.OrderDescription,
+                TotalPrice = o.TotalPrice,
+                Status = o.Status,
+                UserName = o.User?.Name ?? string.Empty,
+                UserEmail = o.User?.Email ?? string.Empty
+            }).ToList();
 
-    return Ok(orders);
-}
+            return Ok(orders);
+        }
 
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAllOrders()
+        {
+            var orders = await _context.Orders.ToListAsync();
 
-[HttpDelete]
-public async Task<IActionResult> DeleteAllOrders()
-{
-    var orders = await _context.Orders.ToListAsync();
+            if (orders.Count == 0)
+                return NoContent();
 
-    if (orders.Count == 0)
-        return NoContent();
+            _context.Orders.RemoveRange(orders);
+            await _context.SaveChangesAsync();
 
-    _context.Orders.RemoveRange(orders);
-    await _context.SaveChangesAsync();
-
-    return NoContent();
-}
-
+            return NoContent();
+        }
 
         [HttpPut("{id}/status")]
         public async Task<IActionResult> UpdateOrderStatus(int id, [FromBody] OrderStatusUpdateDto dto)
@@ -122,10 +154,6 @@ public async Task<IActionResult> DeleteAllOrders()
         public class OrderStatusUpdateDto
         {
             public string? Status { get; set; }
-
         }
-
-
-
     }
 }

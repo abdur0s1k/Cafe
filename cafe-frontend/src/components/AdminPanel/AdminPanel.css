@@ -10,15 +10,6 @@ h1 {
     color: #343a40;
 }
 
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 form {
     display: flex;
     flex-direction: column;
@@ -32,31 +23,6 @@ input {
     border-radius: 4px;
 }
 
-button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
 .category-buttons {
     margin-bottom: 20px; 
 }
@@ -67,7 +33,7 @@ li {
     border: 1px solid #ccc; 
     border-radius: 5px;
     cursor: pointer; 
-    background-color: #0011ff;
+    background-color: #1e6a6e;
 }
 
 .category-buttons button:hover {
@@ -75,9 +41,9 @@ li {
 }
 
 .category-buttons button.active {
-    background-color: #007bff; 
+    background-color: #0f3739; 
     color: white; 
-    border: 1px solid #007bff; 
+    border: 1px solid #0f3739; 
 }
 
 .create-button {

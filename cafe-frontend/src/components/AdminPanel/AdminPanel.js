@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import "./AdminPanel.css";
 import { useNavigate } from 'react-router-dom'; 
-import './AdminPanel.css';
 import ProductForm from './ProductForm';
 import ProductList from './ProductList';
 

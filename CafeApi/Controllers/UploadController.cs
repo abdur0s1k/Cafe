@@ -13,7 +13,7 @@ namespace CafeApi.Controllers
         public UploadController()
         {
             _uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-            Directory.CreateDirectory(_uploadFolder); 
+            Directory.CreateDirectory(_uploadFolder);
         }
 
         [HttpPost("upload")]

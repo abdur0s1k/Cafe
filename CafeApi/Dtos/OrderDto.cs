@@ -10,7 +10,6 @@ namespace CafeApi.Dtos
         public decimal TotalPrice { get; set; }
         public string? Status{ get; set; } 
 
-        // Эти поля не сохраняются, используются только при онлайн-оплате
         public string? CardNumber { get; set; }
         public string? CardExpiry { get; set; }
         public string? CardCvv { get; set; }

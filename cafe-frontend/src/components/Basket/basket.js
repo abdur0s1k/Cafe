@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./basket.css";
+import '../../styles/main.css';
 
 const visaIconUrl =
   "https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png";
@@ -8,6 +9,7 @@ const mastercardIconUrl =
 
 const Basket = () => {
   const [cart, setCart] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedAddress, setSelectedAddress] = useState(
     "ул. Карла Маркса 9, Минск, Минская область 220036, Беларусь"
   );
@@ -15,6 +17,7 @@ const Basket = () => {
   const [selectedCard, setSelectedCard] = useState("visa");
   const [cardNumber, setCardNumber] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
+  const [cardHolder, setCardHolder] = useState("");
   const [cardCvv, setCardCvv] = useState("");
 
   useEffect(() => {
@@ -46,6 +49,9 @@ const Basket = () => {
       } catch (error) {
         console.error(error);
       }
+            finally {
+  setLoading(false);
+}
     };
 
     fetchCart();
@@ -205,7 +211,14 @@ const Basket = () => {
     } catch (error) {
       console.error(error);
     }
+    
   };
+    if (loading)  return (
+      <div className="loading-container">
+        <div className="spinner" />
+        <div className="loading-text">Загрузка...</div>
+      </div>
+    );
 
   return (
     <div className="basket-container">
@@ -272,81 +285,106 @@ const Basket = () => {
                 </option>
               </select>
             </div>
+<div className="basket-total_payment">
+  <label>Способ оплаты:</label>
+  <div className="custom-payment-methods">
+    <div
+      className={`custom-method ${paymentMethod === "pickup" ? "selected" : ""}`}
+      onClick={() => setPaymentMethod("pickup")}
+    >
+      <i className="fas fa-hand-holding-usd"></i>
+      <span>При получении</span>
+    </div>
+    <div
+      className={`custom-method ${paymentMethod === "card" ? "selected" : ""}`}
+      onClick={() => setPaymentMethod("card")}
+    >
+      <i className="fas fa-credit-card"></i>
+      <span>Картой онлайн</span>
+    </div>
+  </div>
 
-            <div className="basket-total_payment">
-              <label>Способ оплаты:</label>
-              <div className="payment-method">
-                <label>
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="pickup"
-                    checked={paymentMethod === "pickup"}
-                    onChange={() => setPaymentMethod("pickup")}
-                  />
-                  Оплата при получении
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="card"
-                    checked={paymentMethod === "card"}
-                    onChange={() => setPaymentMethod("card")}
-                  />
-                  Картой онлайн
-                </label>
-              </div>
 
-              {paymentMethod === "card" && (
-                <div className="card-inputs">
-                  <div
-                    className="card-select-wrapper"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    {selectedCard === "visa" && (
-                      <img
-                        src={visaIconUrl}
-                        alt="Visa"
-                        style={{ width: "50px", height: "auto" }}
-                      />
-                    )}
-                    {selectedCard === "mastercard" && (
-                      <img
-                        src={mastercardIconUrl}
-                        alt="Mastercard"
-                        style={{ width: "50px", height: "auto" }}
-                      />
-                    )}
-                    <input
-                      className="card-number-input"
-                      type="text"
-                      placeholder="Номер карты"
-                      value={cardNumber}
-                      onChange={(e) => setCardNumber(e.target.value)}
-                    />
-                  </div>
-                  <div className="card-expiry-cvv">
-                    <input
-                      type="text"
-                      placeholder="MM/YY"
-                      value={cardExpiry}
-                      onChange={(e) => setCardExpiry(e.target.value)}
-                    />
-                    <input
-                      type="password"
-                      placeholder="CVV"
-                      value={cardCvv}
-                      onChange={(e) => setCardCvv(e.target.value)}
-                    />
-                  </div>
-                </div>
-              )}
+
+
+
+{paymentMethod === "card" && (
+  <>
+  
+    <div className="card-inputs">
+      <div className="card-brand">
+        {selectedCard === "visa" && (
+          <img src={visaIconUrl} alt="Visa" className="card-logo" />
+        )}
+        {selectedCard === "mastercard" && (
+          <img
+            src={mastercardIconUrl}
+            alt="Mastercard"
+            className="card-logo"
+          />
+        )}
+      </div>
+      <div className="card-container">
+        <div className="card-main card-inputs">
+      <input
+        type="text"
+        placeholder="Номер карты"
+        value={cardNumber}
+        onChange={(e) => {
+          const input = e.target.value.replace(/\D/g, ""); // Удаляем нецифры
+          const formatted = input.match(/.{1,4}/g)?.join(" ") ?? input; // По 4 символа
+          setCardNumber(formatted);
+        }}
+        maxLength={19} // 16 цифр + 3 пробела
+        className="card-input"
+      />
+      
+<div className="card-inputs_holder">
+        <input
+        type="text"
+        placeholder=""
+        value={cardHolder}
+        onChange={(e) => {
+          const input = e
+            .target.value.toUpperCase()
+            .replace(/[^A-Z\s]/g, ""); // Только латинские и пробел
+          setCardHolder(input);
+        }}
+        className="card-input"
+      />
+      <input
+        type="text"
+        placeholder="Срок действия (MM/YY)"
+        value={cardExpiry}
+        onChange={(e) => {
+          const input = e.target.value.replace(/\D/g, ""); // Удаляем нецифры
+          let formatted = input;
+
+          if (input.length >= 3) {
+            formatted = input.slice(0, 2) + "/" + input.slice(2, 4); // Вставляем слэш
+          }
+
+          setCardExpiry(formatted);
+        }}
+        maxLength={5} // MM/YY
+        className="card-input"
+      />
+    </div>    </div>
+    
+        <div className="card-cvv card-inputs">
+      <input
+        type="password"
+        placeholder="CVV"
+        value={cardCvv}
+        onChange={(e) => setCardCvv(e.target.value)}
+        maxLength={3}
+        className="cvv-input"
+      />
+    </div></div></div>
+  </>
+)}
+
+
             </div>
             <button className="order-button" onClick={handleCheckout}>
               Заказать

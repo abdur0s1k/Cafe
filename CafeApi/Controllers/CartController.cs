@@ -22,7 +22,7 @@ public class CartController : ControllerBase
     {
         public int UserId { get; set; }
         public int ProductId { get; set; }
-        public int Quantity { get; set; } // обычно будет 1
+        public int Quantity { get; set; }
     }
 
     [HttpPost]
@@ -31,13 +31,11 @@ public class CartController : ControllerBase
         if (request.Quantity < 1)
             return BadRequest("Количество должно быть не меньше 1.");
 
-        // Ищем, есть ли уже такой товар в корзине пользователя
         var cartItem = await _context.CartItems
             .FirstOrDefaultAsync(ci => ci.UserId == request.UserId && ci.ProductId == request.ProductId);
 
         if (cartItem == null)
         {
-            // Если товара нет, создаём новую запись
             cartItem = new CartItem
             {
                 UserId = request.UserId,
@@ -48,57 +46,55 @@ public class CartController : ControllerBase
         }
         else
         {
-            // Если есть — увеличиваем количество
             cartItem.Quantity += request.Quantity;
             _context.CartItems.Update(cartItem);
         }
 
         await _context.SaveChangesAsync();
 
-        return Ok(cartItem);  // Можно вернуть обновлённый объект корзины
+        return Ok(cartItem);
     }
 
-[HttpDelete("clear")]
-public async Task<IActionResult> ClearCart([FromQuery] int userId)
-{
-    // Находим все элементы корзины для данного пользователя
-    var cartItems = await _context.CartItems
-        .Where(ci => ci.UserId == userId)
-        .ToListAsync();
-
-    if (cartItems.Count == 0)
-        return NotFound("Корзина пользователя уже пуста.");
-
-    // Удаляем все найденные элементы
-    _context.CartItems.RemoveRange(cartItems);
-    await _context.SaveChangesAsync();
-
-    return NoContent();  // Возвращаем 204, так как очистка выполнена успешно
-}
-
-
-[HttpGet]
-public async Task<IActionResult> GetCartItems([FromQuery] int userId)
-{
-    var cartItems = await _context.CartItems
-        .Include(ci => ci.Product)
-        .Where(ci => ci.UserId == userId)
-        .ToListAsync();
-
-    var result = cartItems.Select(ci => new
+    [HttpDelete("clear")]
+    public async Task<IActionResult> ClearCart([FromQuery] int userId)
     {
-        id = ci.Id,
-        productId = ci.ProductId,
-        name = ci.Product?.Name ?? string.Empty,
-        weight = ci.Product?.Weight ?? 0,
-        price = ci.Product?.Price ?? 0m,
-        img = ci.Product?.ImageUrl ?? string.Empty,
-        quantity = ci.Quantity,
-        category = ci.Product?.Category ?? string.Empty,
-    });
 
-    return Ok(result);
-}
+        var cartItems = await _context.CartItems
+            .Where(ci => ci.UserId == userId)
+            .ToListAsync();
+
+        if (cartItems.Count == 0)
+            return NotFound("Корзина пользователя уже пуста.");
+
+        _context.CartItems.RemoveRange(cartItems);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+
+    [HttpGet]
+    public async Task<IActionResult> GetCartItems([FromQuery] int userId)
+    {
+        var cartItems = await _context.CartItems
+            .Include(ci => ci.Product)
+            .Where(ci => ci.UserId == userId)
+            .ToListAsync();
+
+        var result = cartItems.Select(ci => new
+        {
+            id = ci.Id,
+            productId = ci.ProductId,
+            name = ci.Product?.Name ?? string.Empty,
+            weight = ci.Product?.Weight ?? 0,
+            price = ci.Product?.Price ?? 0m,
+            img = ci.Product?.ImageUrl ?? string.Empty,
+            quantity = ci.Quantity,
+            category = ci.Product?.Category ?? string.Empty,
+        });
+
+        return Ok(result);
+    }
 
 
     [HttpPut("{id}")]
@@ -114,18 +110,18 @@ public async Task<IActionResult> GetCartItems([FromQuery] int userId)
         return NoContent();
     }
 
-[HttpDelete("{id}")]
-public async Task<IActionResult> DeleteCartItem(int id)
-{
-    var item = await _context.CartItems.FindAsync(id);
-    if (item == null)
-        return NotFound();
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteCartItem(int id)
+    {
+        var item = await _context.CartItems.FindAsync(id);
+        if (item == null)
+            return NotFound();
 
-    _context.CartItems.Remove(item);
-    await _context.SaveChangesAsync();
+        _context.CartItems.Remove(item);
+        await _context.SaveChangesAsync();
 
-    return NoContent();
-}
+        return NoContent();
+    }
 
 
 }

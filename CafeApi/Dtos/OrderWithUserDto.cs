@@ -9,7 +9,6 @@ namespace CafeApi.Dtos
         public string OrderDescription { get; set; } = string.Empty;
         public decimal TotalPrice { get; set; }
         public string? Status { get; set; } 
-        // Данные пользователя
         public string UserName { get; set; } = string.Empty;
         public string UserEmail { get; set; } = string.Empty;
     }

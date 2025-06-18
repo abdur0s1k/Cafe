@@ -1,0 +1,151 @@
+:root {
+  --primary: #0f3739;
+  --primary-light: #2e5a5c;
+  --primary-lighter: #cfe4e5;
+  --primary-border: #a0bcbc;
+  --primary-hover: #145456;
+  --background: #f4f9f9;
+  --text-dark: #0f3739;
+  --text-light: #ffffff;
+}
+
+/* Общий стиль */
+.tablemap-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: var(--background);
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: var(--text-dark);
+}
+
+/* Зал */
+.room-layout {
+  position: relative;
+  width: 500px;
+  height: 620px;
+  background-color: var(--primary-lighter);
+  border: 2px solid var(--primary-border);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+/* Столики */
+.table {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-light);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s;
+  text-align: center;
+  user-select: none;
+  color: var(--text-light);
+}
+
+.table:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary);
+}
+
+.table.selected {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border-color: var(--primary-hover);
+}
+
+/* Форма */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid var(--primary-border);
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(15, 55, 57, 0.1);
+}
+
+.booking-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary);
+}
+
+.booking-form input[type="date"],
+.booking-form input[type="time"] {
+  margin-top: 5px;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid var(--primary-border);
+  border-radius: 4px;
+  outline-color: var(--primary);
+}
+
+.booking-form button {
+  padding: 10px 0;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.booking-form button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* 🔽 Адаптация под мобильные устройства */
+@media (max-width: 600px) {
+  .room-layout {
+    width: 90vw;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    margin-top: 40px;
+  }
+
+  .table {
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+  }
+
+  .booking-form {
+    width: 90vw;
+    padding: 16px;
+  }
+
+  .booking-form label {
+    font-size: 13px;
+  }
+
+  .booking-form input[type="date"],
+  .booking-form input[type="time"] {
+    font-size: 13px;
+    padding: 5px 6px;
+  }
+
+  .booking-form button {
+    font-size: 14px;
+  }
+
+  .tablemap-wrapper {
+    padding: 20px;
+  }
+}

@@ -25,13 +25,10 @@ namespace CafeApi.Models
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
     }
-    
-public class ChangePasswordDto
-{
-    public int UserId { get; set; }
-    public string NewPassword { get; set; } = string.Empty;
-}
 
-
-
+    public class ChangePasswordDto
+    {
+        public int UserId { get; set; }
+        public string NewPassword { get; set; } = string.Empty;
+    }
 }

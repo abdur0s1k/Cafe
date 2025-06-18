@@ -36,10 +36,10 @@ function OrderHistory() {
     fetchOrders();
   }, []);
 
-  if (loading)
-    return (
-      <div className="order-history-wrapper">
-        <p>Загрузка истории заказов...</p>
+  if (loading)  return (
+      <div className="loading-container">
+        <div className="spinner" />
+        <div className="loading-text">Загрузка...</div>
       </div>
     );
   if (error)

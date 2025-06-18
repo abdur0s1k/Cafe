@@ -145,13 +145,13 @@ function AuthForm({ formType, onSubmit, onSwitchForm }) {
           </div>
         )}
         {error && <p className="error-message">{error}</p>}
-        <button type="submit">{formType === 'login' ? 'Войти' : 'Зарегистрироваться'}</button>
+        <button type="submit" className='btn_log_reg btn-log'>{formType === 'login' ? 'Войти' : 'Зарегистрироваться'}</button>
       </form>
       <p>
         {formType === 'login'
           ? 'Нет аккаунта?'
           : 'Уже есть аккаунт?'}{' '}
-        <button onClick={onSwitchForm}>
+        <button onClick={onSwitchForm} className='btn_log_reg btn-reg'>
           {formType === 'login' ? 'Зарегистрироваться' : 'Войти'}
         </button>
       </p>

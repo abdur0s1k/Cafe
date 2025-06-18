@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7s/l/oE5oeK8Je8/8E+FApmAtc7RZWT3UwF9VA4B9C0=",
+  "Hash": "nLMoGK43DzaoE5NQw428znoFK/tJb9Cns3ZHzWCsZss=",
   "Source": "CafeApi",
   "BasePath": "_content/CafeApi",
   "Mode": "Default",
@@ -16,25 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Рисунок1.png",
-      "SourceId": "CafeApi",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\",
-      "BasePath": "_content/CafeApi",
-      "RelativePath": "images/Рисунок1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Рисунок1.png"
-    },
     {
       "Identity": "D:\\Work\\Cafe\\CafeApi\\wwwroot\\images\\Amer.jpg",
       "SourceId": "CafeApi",

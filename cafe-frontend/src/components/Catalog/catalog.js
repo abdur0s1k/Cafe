@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./catalog.css";
+import '../../styles/main.css';
 
 function Catalog() {
   const [userId, setUserId] = useState(null);
@@ -80,66 +81,65 @@ function Catalog() {
   }
 };
 
-  if (!products.length) {
-    return <div>Загрузка...</div>;
+    if (!products.length) {
+    return (
+      <div className="loading-container">
+        <div className="spinner" />
+        <div className="loading-text">Загрузка...</div>
+      </div>
+    );
   }
+
+  const categories = Array.from(new Set(products.map((product) => product.category)));
 
   return (
     <div className="catalog">
       <h1>Каталог</h1>
       <div className="category-menu">
-        {Array.from(new Set(products.map((product) => product.category))).map(
-          (category) => (
-            <button
-              key={category}
-              className={activeCategory === category ? "active" : ""}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          )
-        )}
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={activeCategory === category ? "active" : ""}
+            onClick={() => setActiveCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
       <div className="category-content">
         {products
           .filter((product) => product.category === activeCategory)
           .map((product) => (
-            <div key={product.id} className="product-card">
-              <img
-                src={`http://localhost:5189${product.imageUrl}`}
-                alt={product.name}
-              />
-              <div className="product-info">
-                <h3>{product.name}</h3>
-                <p className="description">{product.description}</p>
-                <div className="product-price-rating">
-                  <span className="price">
-                    {parseFloat(product.price).toFixed(2)} BYN
-                  </span>
-                  <span className="rating">
-                    {product.weight}{" "}
-                    {product.category === "Coffee" ? "мл." : "гр."}
-                  </span>
-                </div>
-                <div className="buttons">
-                  <button onClick={() => handleAddToCart(product.id)}>
-                    <img
-                      src="/CoffeIconsSVG/basket.svg"
-                      alt="Добавить в корзину"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
+<div key={product.id} className="product-image-wrapper">
+  <img
+    src={`http://localhost:5189${product.imageUrl}`}
+    alt={product.name}
+    className="product-image"
+  />
+  <div className="overlay-info">
+    <h3>{product.name}</h3>
+    <p>{product.description}</p>
+    <p>
+      {product.weight} {product.category === "Coffee" ? "мл." : "гр."}
+    </p>
+    <p className="price">{parseFloat(product.price).toFixed(2)} BYN</p>
+    <button
+      onClick={() => handleAddToCart(product.id)}
+      className="add-to-cart-btn"
+    >
+      В корзину
+    </button>
+  </div>
+</div>
           ))}
       </div>
-{notification && (
-  <div key={notification.id} className="notification">
-    ✅ Добавлен: <strong>{notification.name}</strong> (x{notification.quantity})
-  </div>
-)}
 
+      {notification && (
+        <div key={notification.id} className="notification">
+          ✅ Добавлен: <strong>{notification.name}</strong> (x{notification.quantity})
+        </div>
+      )}
     </div>
   );
 }

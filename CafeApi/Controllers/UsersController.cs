@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CafeApi.Data;
 using CafeApi.Models;
+using CafeApi.Dtos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System.Text.RegularExpressions;
@@ -21,7 +22,6 @@ namespace CafeApi.Controllers
             _passwordHasher = passwordHasher;
         }
 
-        // Регистрация нового пользователя
         [HttpPost("register")]
         public async Task<ActionResult<User>> Register([FromBody] UserRegistrationDto registration)
         {
@@ -50,7 +50,6 @@ namespace CafeApi.Controllers
             return CreatedAtAction(nameof(Register), new { id = user.Id }, user);
         }
 
-        // Логин
         [HttpPost("login")]
         public async Task<ActionResult<User>> Login([FromBody] UserLoginDto login)
         {
@@ -65,7 +64,6 @@ namespace CafeApi.Controllers
             return Ok(user);
         }
 
-        // Обновление данных пользователя
         [HttpPut("update")]
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserDto dto)
         {
@@ -80,26 +78,22 @@ namespace CafeApi.Controllers
             return Ok();
         }
 
-[HttpPut("change-password")]
-public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
-{
-    if (dto == null)
-        return BadRequest("Данные не были переданы");
+        [HttpPut("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
+        {
+            if (dto == null)
+                return BadRequest("Данные не были переданы");
 
-    var user = await _context.Users.FindAsync(dto.UserId);
-    if (user == null)
-        return NotFound("Пользователь не найден");
+            var user = await _context.Users.FindAsync(dto.UserId);
+            if (user == null)
+                return NotFound("Пользователь не найден");
 
-    // Хэшируем новый пароль и сохраняем
-    user.PasswordHash = _passwordHasher.HashPassword(user, dto.NewPassword);
+            user.PasswordHash = _passwordHasher.HashPassword(user, dto.NewPassword);
 
-    await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
-    return Ok("Пароль успешно обновлён");
-}
-
-
-        // Удаление пользователя
+            return Ok("Пароль успешно обновлён");
+        }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
@@ -112,7 +106,6 @@ public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto
             return Ok();
         }
 
-        // Получение пользователя по Id
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {

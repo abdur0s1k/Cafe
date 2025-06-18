@@ -9,7 +9,7 @@ namespace CafeApi.Models
         public int Id { get; set; }
         [Column("userid")]
         public int UserId { get; set; }
-        public User? User { get; set; } 
+        public User? User { get; set; }
         [Column("pickupaddress")]
         public string PickupAddress { get; set; } = string.Empty;
         [Column("paymentmethod")]
@@ -23,7 +23,7 @@ namespace CafeApi.Models
         public DateTime OrderDate { get; set; }
 
         [Column("status")]
-        public string? Status { get; set; } = "В обработке"; 
+        public string? Status { get; set; } = "В обработке";
     }
 
 }
