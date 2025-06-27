@@ -104,6 +104,17 @@ function Header() {
                   Бронь
                 </a>
               </li>
+<li className="nav-item">
+  <a
+    className="nav-link link text-black display-4"
+    href="/Management.html"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Как пользоваться сайтом
+  </a>
+</li>
+
             </ul>
 
             <div className="navbar-buttons mbr-section-btn">
